@@ -17,7 +17,9 @@ class Announcement
       cards = list['cards']
       result = Array.new
       cards.each do |card|
-        result << prepare_result(card)
+        if Date.parse( card['dateLastActivity']).month == (Time.now.month.to_i - 1)
+          result << prepare_result(card)
+        end
       end
     rescue Exception => e
     end
