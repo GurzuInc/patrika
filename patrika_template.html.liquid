@@ -6,7 +6,7 @@
   {% for post in posts %}
     <li>
       <p>{{post[0]}}</p>
-      <p><a href={{post[1]}}>{{post[1]}}</a></p>
+      {% if post[1] != "" %} <p><a href={{post[1]}}>{{post[1]}}</a></p> {% endif %}
       <p>{{post[2]}}</p>
     </li>
   {% endfor %}

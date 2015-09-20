@@ -28,7 +28,7 @@ class Announcement
   def prepare_result(card)
     name = card['name']
     desc = card['desc']
-    return [name, nil, desc]
+    return [name, "", desc]
   end
 
   # Method to move published card from ready to publish to published list. This is not working now.
