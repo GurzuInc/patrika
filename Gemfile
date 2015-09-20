@@ -4,4 +4,5 @@ gem "mechanize"
 gem "pry"
 gem 'dotenv-rails'
 gem  'httparty'
-gem 'thin'
+# gem 'thin'   # FOR POSSIBLE RACK INTEGRATIONS
+gem 'sinatra'
