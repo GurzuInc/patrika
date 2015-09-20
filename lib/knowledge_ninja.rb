@@ -3,6 +3,7 @@ require File.join(File.dirname(__FILE__),'formatters','knowledge_formatter.rb')
 require File.join(File.dirname(__FILE__),'configurations.rb')
 
 class KnowledgeNinja
+  attr_accessor :knowledge
   def initialize
     @token = CONFIG['slack_authorization_token']
     @base_uri = "https://slack.com/api/channels.history"
