@@ -25,8 +25,9 @@ class KnowledgeNinja
   end
 
   def prepare_for_patrika
-    @knowledge.map {|k| 
-      KnowledgeFromatter.new(k)
+    @knowledge.collect! {|k| 
+      formatter = KnowledgeFormatter.new(k)
+      formatter.format
     }
   end
 
