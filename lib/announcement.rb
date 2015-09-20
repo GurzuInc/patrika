@@ -1,8 +1,5 @@
-require 'yaml'
-require 'pry'
-require 'dotenv'
 require 'httparty'
-CONFIG=Dotenv.load
+require File.join(File.dirname(__FILE__),'configurations.rb')
 
 class Announcement
   attr_accessor :key, :secret, :token, :list_id
