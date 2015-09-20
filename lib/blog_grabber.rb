@@ -20,9 +20,10 @@ class BlogGrabber
   end
 
   def get_link_and_content(clicked_link, link)
+    header =  clicked_link.search(".blog-layout .right-sidebar h2").first.text
     content = clicked_link.search(".blog-layout .right-sidebar p").first.text[0..125] + ".."
     link = link.attributes["href"].value = "http://jyaasa.com" + link.attributes["href"].value
-    [link, content]
+    [header, link, content]
   end
 
   def is_this_months_post?(date_str)
