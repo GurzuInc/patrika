@@ -35,7 +35,10 @@ class Mailer
       from "Jyaasa <" + CONFIG["email_username"] + ">"
       to YAML.load_file("./config/receipent.yml")["receipent"].map{|k,v| v}.join(",")
       subject "Jyaasa Monthly Newsletter"
-      body EmailTemplate.new.get_email_contents(Date.today.month)
+      html_part do
+        content_type 'text/html; charset=UTF-8'
+        body EmailTemplate.new.get_email_contents(Date.today.strftime("%B"))
+      end
     end      
   end
 end
