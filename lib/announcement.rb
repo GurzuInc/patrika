@@ -13,7 +13,7 @@ class Announcement
     @token = CONFIG['trello_token']
   end
 
-  def fetch_card
+  def patrika_contents
     list = HTTParty.get("https://api.trello.com/1/lists/55fe6d9b3eca2cb147724882?fields=name&cards=open&key=#{@key}&token=#{@token}")
     cards = list['cards']
     result = Array.new
@@ -27,7 +27,7 @@ class Announcement
   def prepare_result(card)
     name = card['name']
     desc = card['desc']
-    return {name: name, description: desc}
+    return [name, nil, desc]
   end
 
   # Method to move published card from ready to publish to published list. This is not working now.
@@ -36,3 +36,4 @@ class Announcement
     HTTParty.put("https://api.trello.com/1/cards/#{id}/55fe79ff6286c04f8ee97091&key=#{@key}&token=#{@token}")
   end
 end
+
