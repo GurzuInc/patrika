@@ -32,5 +32,3 @@ class BlogGrabber
     post_month == Date.today.month ? true : false
   end
 end
-
-puts BlogGrabber.new.patrika_contents

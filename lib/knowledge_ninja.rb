@@ -16,6 +16,7 @@ class KnowledgeNinja
     start_time = start_time.to_time.to_i
     slack_contents = HTTParty.get("#{@base_uri}?token=#{@token}&channel=#{@channel}&inclusive=1&pretty=1&oldest=#{start_time}").body
     json_contents = JSON.parse(slack_contents)
+    puts json_contents
     @knowledge= json_contents['messages']
   end
 
