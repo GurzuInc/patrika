@@ -17,6 +17,6 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 every 1.month do 
-  runner "ghanta"
+  runner "init.rb"
 end
 # Learn more: http://github.com/javan/whenever

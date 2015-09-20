@@ -20,8 +20,10 @@ class Mailer
 
   def fire
     set_delivery_method(@smtp_settings)
-    mail = initialize_mail
-    mail.deliver
+    YAML.load_file("./config/receipent.yml")["receipent"].each do |k, v|
+      mail = initialize_mail(v)
+      mail.deliver
+    end
   end
 
   def set_delivery_method(options)
@@ -30,14 +32,14 @@ class Mailer
     end
   end
 
-  def initialize_mail
+  def initialize_mail(receipent)
     Mail.new do
       from "Jyaasa <" + CONFIG["email_username"] + ">"
-      to YAML.load_file("./config/receipent.yml")["receipent"].map{|k,v| v}.join(",")
+      to receipent
       subject "Jyaasa Monthly Newsletter"
       html_part do
         content_type 'text/html; charset=UTF-8'
-        body EmailTemplate.new.get_email_contents(Date.today.strftime("%B"))
+        body EmailTemplate.new.get_email_contents(Date.today.strftime("%B"), receipent)
       end
     end      
   end
