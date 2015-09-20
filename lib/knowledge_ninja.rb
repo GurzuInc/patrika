@@ -12,8 +12,8 @@ class KnowledgeNinja
   end
 
   def fetch_knowledge
-    today_date = Date.today
-    start_time = Date.parse "#{today_date.year}-#{today_date.month-1}-01"
+    today_date = Date.today.prev_month
+    start_time = Date.parse "#{today_date.year}-#{today_date.month}-01"
     start_time = start_time.to_time.to_i
     slack_contents = HTTParty.get("#{@base_uri}?token=#{@token}&channel=#{@channel}&inclusive=1&pretty=1&oldest=#{start_time}").body
     json_contents = JSON.parse(slack_contents)
