@@ -5,16 +5,17 @@ require 'httparty'
 CONFIG=Dotenv.load
 
 class Announcement
-  attr_accessor :key, :secret, :token
+  attr_accessor :key, :secret, :token, :list_id
 
   def initialize
     @key = CONFIG['trello_key']
     @secret = CONFIG['trello_secret']
     @token = CONFIG['trello_token']
+    @list_id = CONFIG['trello_list']
   end
 
   def patrika_contents
-    list = HTTParty.get("https://api.trello.com/1/lists/55fe6d9b3eca2cb147724882?fields=name&cards=open&key=#{@key}&token=#{@token}")
+    list = HTTParty.get("https://api.trello.com/1/lists/#{@list_id}?fields=name&cards=open&key=#{@key}&token=#{@token}")
     cards = list['cards']
     result = Array.new
     cards.each do |card|
