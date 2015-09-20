@@ -1,2 +1,5 @@
 slack:
  token: <%=ENV['slack_authorization_token']%>
+trello:
+  key: ENV['trello_key']
+  secret: ENV['trello_secret']
