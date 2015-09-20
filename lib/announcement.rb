@@ -15,11 +15,14 @@ class Announcement
   end
 
   def patrika_contents
-    list = HTTParty.get("https://api.trello.com/1/lists/#{@list_id}?fields=name&cards=open&key=#{@key}&token=#{@token}")
-    cards = list['cards']
-    result = Array.new
-    cards.each do |card|
-      result << prepare_result(card)
+    begin
+      list = HTTParty.get("https://api.trello.com/1/lists/#{@list_id}?fields=name&cards=open&key=#{@key}&token=#{@token}")
+      cards = list['cards']
+      result = Array.new
+      cards.each do |card|
+        result << prepare_result(card)
+      end
+    rescue Exception => e
     end
     return result
   end
