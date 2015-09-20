@@ -1,2 +1,2 @@
 slack:
- token: ENV['slack_authorization_token']
+ token: <%=ENV['slack_authorization_token']%>
