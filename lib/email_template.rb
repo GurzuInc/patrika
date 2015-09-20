@@ -10,7 +10,7 @@ class EmailTemplate
     [BlogGrabber, KnowledgeNinja, Announcement].each {|klass| @newsletter_contents += klass.new.patrika_contents}
   end
 
-  def get_email_contents(username, month)
-    Liquid::Template.parse(@template_content.read).render('username'=>"sagun shrestha", 'month'=>"September", 'posts'=>@newsletter_contents)
+  def get_email_contents(month)
+    content = Liquid::Template.parse(@template_content.read).render('month'=>month, 'posts'=>@newsletter_contents)
   end
 end
