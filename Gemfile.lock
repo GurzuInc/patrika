@@ -21,6 +21,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     builder (3.2.2)
+    chronic (0.10.2)
     coderay (1.1.0)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
@@ -88,6 +89,8 @@ GEM
       unf_ext
     unf_ext (0.0.7.1)
     webrobots (0.1.1)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -98,3 +101,7 @@ DEPENDENCIES
   liquid
   mechanize
   pry
+  whenever
+
+BUNDLED WITH
+   1.10.5
