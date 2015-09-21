@@ -3,6 +3,7 @@ class Deployer
   def deploy
     source = File.expand_path('./')
     server = CONFIG['server']
+    remote_path = CONFIG['remote_path']
     response = `rsync -avuz --progress #{source}/ #{server}:#{remote_path}`
     puts response
   end
