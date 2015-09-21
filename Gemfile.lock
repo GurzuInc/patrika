@@ -105,6 +105,3 @@ DEPENDENCIES
   mechanize
   pry
   whenever
-
-BUNDLED WITH
-   1.10.5
