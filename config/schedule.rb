@@ -16,7 +16,9 @@
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
 # end
+
+
 every 1.month do 
-  command "cd #{CONFIG['remote_path']}"
+  command "cd /home/deployer/tools/patrika && bundle exec ruby init.rb"
 end
 # Learn more: http://github.com/javan/whenever
