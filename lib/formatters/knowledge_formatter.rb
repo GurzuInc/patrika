@@ -21,7 +21,9 @@ class KnowledgeFormatter
       agent = Mechanize.new
       page = agent.get(@link)
       @title = page.title
-      @text = page.search('body').text.gsub('\n',' ').slice(20..100)  # THIS IS VERY BASIC AND ROUGH 
+      re = /<("[^"]*"|'[^']*'|[^'">])*>/
+      text = page.search('body').text.gsub('\n',' ').slice(20..600)
+      @text =  text.gsub!(re,'') # THIS IS VERY BASIC AND ROUGH 
     end
   end
 
@@ -29,6 +31,4 @@ class KnowledgeFormatter
       @link = URI.extract(@knowledge['text']).last
   end
 
-  
-  
 end

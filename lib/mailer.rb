@@ -20,8 +20,10 @@ class Mailer
 
   def fire
     set_delivery_method(@smtp_settings)
-    YAML.load_file("./config/receipent.yml")["receipent"].each do |k, v|
-      mail = initialize_mail(v)
+    YAML.load_file("./config/receipents.yml")["receipents"].each do |k|
+      mail = initialize_mail(k)
+      puts "sending to #{k}"
+
       mail.deliver
     end
   end

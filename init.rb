@@ -4,4 +4,6 @@ $:.unshift( File.join(APP_ROOT, 'lib') )
 
 require 'mailer'
 
-Mailer.new.fire
+Mailer.new.fire    
+    
+       
